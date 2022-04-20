@@ -1,9 +1,14 @@
 import React from 'react';
 import 'toothpick.css';
 
-function toothpick() {
+// interface Props{
+//   selected:boolean
+// }
+
+function toothpick(selected:boolean) {
   return (
-    <div className="App">
+    <div className="toothpick">
+      <img src={selected?"./remove.png":"./toothpick.png"}></img>
       
     </div>
   );
