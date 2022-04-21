@@ -1,17 +1,37 @@
-import React from 'react';
-import 'toothpick.css';
+import React, { useState } from 'react';
+import './toothpick.css';
 
-// interface Props{
-//   selected:boolean
-// }
+interface Props{
+  takeRow:Function
+  activePlayer:undefined|string
+}
 
-function toothpick(selected:boolean) {
+function Toothpick( {takeRow,activePlayer}:Props ) {
+  const [selected, setSelected] = useState(false);
+
+
+  const takePick=()=>{
+
+    if (!activePlayer){
+      alert('请选一个游戏者开始')
+      return
+    }
+
+    if ( takeRow() )
+    {
+      setSelected(true)
+    } 
+    
+
+
+  }
+
   return (
-    <div className="toothpick">
+    <div className="toothpick" onClick={()=>takePick()}>
       <img src={selected?"./remove.png":"./toothpick.png"}></img>
       
     </div>
   );
 }
 
-export default toothpick;
+export default Toothpick;
